@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piropos para mi Mariana</title>
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .container {
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        margin-bottom: 20px;
+        color: #007bff;
+    }
+    
+    .leyenda {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    
+    .piropo {
+        font-size: 24px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
+    /* Estilos para pantallas pequeñas (hasta 767px de ancho) */
+    @media (max-width: 767px) {
+        h1 {
+            font-size: 24px;
+        }
+    
+        .piropo {
+            font-size: 20px;
+        }
+    
+        button {
+            font-size: 16px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Piropos para Mariana del pilar Martinez </h1>
+        <p class="leyenda">ING Jorge</p>
+        <img src="https://scontent.fctg1-4.fna.fbcdn.net/v/t39.30808-6/366694694_3581949348792573_4153064315985401122_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeHoRoFahGZEsUeF1j_9ECdQX58lpFX5hM5fnyWkVfmEzueg-zjusmwWU3Ook0KDsrVVojXEuJ1QdL99L56Y50Ij&_nc_ohc=vg3ZJTp7NfUAX84pKEn&_nc_ht=scontent.fctg1-4.fna&oh=00_AfD9tFVcYuxALhAeuSn1_TjUT4ecvYvD0ULtbZm1GahwOg&oe=64E45BA5" width="200px" height="200px" alt="Imagen de Mariana">
+        <div class="piropo" id="piropo-display">Esperando un piropo...</div>
+        <button onclick="mostrarPiropo()">Mostrar Piropo</button>
+    </div>
+    <script>const piropos = [
+        "Eres como un sol, iluminas mi vida.",
+        "Si la belleza fuera tiempo, tú serías la eternidad.",
+        "El cielo debe estar triste porque le faltan estrellas... como tú.",
+        "¿Crees en el amor a primera vista, o vuelvo a pasar?",
+        "Eres como un sueño del que no quiero despertar.",
+        "Si fueras un postre, serías la mejor parte de la comida.",
+        "Eres tan hermosa que deberías ser declarada patrimonio de la humanidad.",
+        "Tienes una sonrisa que podría iluminar la noche más oscura.",
+        "Eres el sueño que nunca quiero despertar.",
+        "Si el amor fuera una flor, tú serías la más hermosa del jardín.",
+        "Eres la luz de mis días.",
+        "Tu sonrisa ilumina mi mundo.",
+        "Si la belleza fuera tiempo, tú serías la eternidad.",
+        "Eres como un sueño hecho realidad.",
+        "Cada día contigo es un regalo.",
+        "Tienes un encanto único e irresistible.",
+        "Eres la razón por la que creo en el amor a primera vista.",
+        "Tu mirada me deja sin palabras.",
+        "Eres más hermosa que una puesta de sol.",
+        "Cada momento a tu lado es inolvidable.",
+        "Eres un ángel que cayó del cielo.",
+        "Tu voz es como una melodía celestial.",
+        "Si la perfección tuviera un nombre, sería el tuyo.",
+        "No existe un día gris cuando estás cerca.",
+        "Eres la definición de la elegancia.",
+        "Tienes el poder de alegrar cualquier día.",
+        "Eres como un rayo de sol en un día lluvioso.",
+        "Mi día comienza y termina pensando en ti.",
+        "Eres más dulce que el chocolate.",
+        "Eres la inspiración de mis sueños.",
+        "No puedo evitar perderme en tus ojos.",
+        "Tu belleza interior brilla aún más que la exterior.",
+        "Tienes un corazón de oro.",
+        "Eres un tesoro que vale la pena descubrir.",
+        "Eres la razón por la que creo en el destino.",
+        "Cada momento a tu lado es un regalo.",
+        "Tu presencia hace que todo sea mejor.",
+        "Eres un faro de luz en mi vida.",
+        "No hay palabras para describir tu belleza.",
+        "Tienes un aura mágica que me atrae.",
+        "Eres el sueño que nunca supe que tenía.",
+        "Eres mi fuente de inspiración.",
+        "Eres como una rosa en plena floración.",
+        "Eres la razón por la que mi corazón late más rápido.",
+        "Tu sonrisa es mi razón para sonreír.",
+        "Eres un diamante en bruto.",
+        "No puedo dejar de pensar en ti.",
+        "Eres mi musa, mi inspiración.",
+        "Tu presencia ilumina cualquier habitación.",
+        "Eres el sol en mi día nublado.",
+        "Tienes un brillo en los ojos que me hipnotiza.",
+        "Eres mi razón para creer en el amor.",
+        "Eres un sueño que nunca quiero despertar.",
+        "Eres la obra maestra de la creación.",
+        "Eres como un cuento de hadas hecho realidad.",
+        "Tu inteligencia es tan atractiva como tu belleza.",
+        "Cada día a tu lado es una aventura.",
+        "Eres un regalo del universo.",
+        "No puedo evitar perderme en tu mirada.",
+        "Eres la personificación de la gracia.",
+        "Tienes un corazón generoso y bondadoso.",
+        "Eres mi inspiración para ser mejor.",
+        "Tu presencia es un regalo para el mundo.",
+        "Eres como un sueño que nunca quiero olvidar.",
+        "Eres mi razón para creer en la magia.",
+        "Tienes una sonrisa que ilumina el camino.",
+        "Eres la definición de la perfección.",
+        "Eres mi refugio en medio de la tormenta.",
+        "Tu belleza es incomparable.",
+        "Eres como una estrella en el cielo nocturno.",
+        "Eres mi motivo para levantarme cada día.",
+        "Tienes un carisma que es imposible de resistir.",
+        "Eres la melodía de mi corazón.",
+        "No puedo evitar sentirme afortunado de conocerte.",
+        "Tienes un espíritu increíblemente valiente.",
+        "Eres mi sueño hecho realidad.",
+        "Tu presencia es como un bálsamo para mi alma.",
+        "Eres mi razón para creer en la bondad.",
+        "Eres como un poema que nunca deja de inspirar.",
+        "Tienes un encanto que es inigualable.",
+        "Eres la razón por la que sonrío todos los días.",
+        "Eres mi faro en la oscuridad.",
+        "Tu belleza es asombrosa.",
+        "Eres como un arcoíris en un día lluvioso.",
+        "Eres la razón por la que el mundo es hermoso.",
+        "Tienes un espíritu libre y aventurero.",
+        "Eres mi razón para creer en los milagros.",
+        "Eres como un jardín en plena primavera.",
+        "Tu bondad toca mi corazón profundamente.",
+        "Eres la inspiración detrás de mis sueños.",
+        "Eres como un cuadro en una galería de arte.",
+        "Eres la razón por la que creo en el destino.",
+        "Tienes una energía positiva que es contagiosa.",
+        "Eres mi musa en cada momento.",
+        "Tu belleza es deslumbrante.",
+        "Eres como un sueño que nunca quiero despertar.",
+        "Tienes un corazón puro y sincero.",
+        "Eres la razón por la que mi vida es mejor.",
+        "Eres como un rayo de esperanza en la oscuridad.",
+        "Eres mi razón para creer en la pasión.",
+        "Tienes una luz interior que brilla intensamente.",
+        "Eres como un diamante en el cielo nocturno.",
+        "Eres la inspiración detrás de mis logros.",
+        "Eres como un poema que nunca deja de emocionar.",
+        "Tu bondad es un regalo para el mundo.",
+        "Eres la razón por la que creo en la felicidad.",
+        "Tienes una belleza que es más allá de las palabras.",
+        "Eres como un suspiro de alivio en medio del caos.",
+        "Eres mi razón para creer en la belleza.",
+        "Tienes un lugar especial en mi corazón."
+        
+    ];
+    
+    function mostrarPiropo() {
+        const piropoDisplay = document.getElementById("piropo-display");
+        const randomIndex = Math.floor(Math.random() * piropos.length);
+        piropoDisplay.textContent = piropos[randomIndex];
+    }
+    
+    mostrarPiropo();</script>
+</body>
+</html>
